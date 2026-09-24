@@ -18,4 +18,9 @@ public class UserController {
         return ResponseEntity.ok("Acesso liberado. Você está logado como: " + userEmail);
     }
 
+    @GetMapping("/admin")
+    public ResponseEntity<String> getAdminData() {
+        return ResponseEntity.ok("Acesso liberado. Você está logado como administrador.");
+    }
+
 }
