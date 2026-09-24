@@ -6,6 +6,7 @@ import com.agc.auth.dto.RegisterDTO;
 import com.agc.auth.model.User;
 import com.agc.auth.security.TokenService;
 import com.agc.auth.service.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Void> register(@RequestBody RegisterDTO data) {
+    public ResponseEntity<Void> register(@RequestBody @Valid RegisterDTO data) {
         this.authService.register(data);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
