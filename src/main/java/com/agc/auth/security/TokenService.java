@@ -19,9 +19,9 @@ public class TokenService {
     private String secret;
 
     // O JWT possui três pedaços: Header, Payload e Signature.
-    // Signature -> garante que ninguém alterou o token no meio do processo.
-    //
-    //
+    // Signature -> Assinatura que garante a integridade do token.
+    // Header -> JSON que define inrformações sobre o tipo de token e o algoritmo de criptografia usado na sua assinatura.
+    // Payload -> JSON com as informações da entidade.
     public String generateToken(User user) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret); // Algorithm que encapsula HMAC-SHA256 e a chave secreta
